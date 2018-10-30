@@ -1,13 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var morgan = require('morgan');
 
-// 
+// create the app
 const app = express();
 
 // parse application/json
 app.use(bodyParser.json());
 
-// Bootstrap application settings
+// configure morgan http logging
+app.use(morgan('dev'));
+
+// bootstrap application settings
 require('./config/express')(app);
 
 /**
@@ -16,6 +20,7 @@ require('./config/express')(app);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
 
 
 module.exports = app;
