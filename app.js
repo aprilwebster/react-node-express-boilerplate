@@ -1,8 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
+// 
 const app = express();
 
+// parse application/json
 app.use(bodyParser.json());
 
 // Bootstrap application settings
